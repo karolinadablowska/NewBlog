@@ -1,18 +1,50 @@
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+    private static final int STOP_PROGRAM = 0;
 
     public static void main(String[] args) {
-
-        Author author = new Author("KK", "hh");
-        Page page = new Page();
-        BlogPost blogPost = new BlogPost();
-
+        Blog blog = new Blog(10, 5, 5);
         Scanner sc = new Scanner(System.in);
 
-        String name = null;
+        int option;
+        do {
+            System.out.println("--------------------------------");
+            System.out.println("1 - add post");
+            System.out.println("2 - delete post");
+            System.out.println("3 - modify post");
+            System.out.println("4 - display posts");
+
+            System.out.println("5 - add author");
+            System.out.println("6 - display authors");
+            System.out.println("0 - stop");
+
+            option = sc.nextInt();
+
+            switch (option) {
+                case 1:
+                    blog.addPost();
+                    break;
+                case 2:
+                    blog.deletePost();
+                    break;
+                case 3:
+                    blog.modifyPost();
+                    break;
+                case 4:
+                    blog.displayPosts();
+                    break;
+                case 5:
+                    blog.addAuthor();
+                    break;
+                case 6:
+                    blog.displayAuthors();
+                    break;
+            }
+        } while(option != STOP_PROGRAM);
+
+
+        /*String name = null;
         String surname = null;
         String title = null;
         LocalDate date = null;
@@ -22,10 +54,9 @@ public class Main {
         String description2 = null;
 
 
-
         ArrayList<Object> list = new ArrayList<Object>();
         list.add(new Author("Stephen", "King"));
-        list.add(new BlogPost("hh", LocalDate.of(1993, 9, 27), "jjj", "jj", new Author("jj", "jj")));
+        list.add(new Post("hh", LocalDate.of(1993, 9, 27), "jjj", "jj", new Author("jj", "jj")));
         list.add(new Page("Zakupy", "................"));
 
         System.out.println(".....................................................................................");
@@ -73,14 +104,14 @@ public class Main {
                         System.out.println("Enter a date: ");
                         date = LocalDate.parse(sc.next());
                         System.out.println("Enter a description: ");
-                        description =  sc.next();
+                        description = sc.next();
                         System.out.println("Enter a tag: ");
                         tag = sc.next();
                         System.out.println("Enter a name of the author");
                         title = sc.next();
                         System.out.println("Enter a name of the author");
                         surname = sc.next();
-                        list.add(new BlogPost(title, date, description, tag, new Author(name, surname)));
+                        list.add(new Post(title, date, description, tag, new Author(name, surname)));
                         break;
                     case 2:
                         blogPost.toString();
@@ -95,44 +126,44 @@ public class Main {
                         list.remove(index);
                         break;
                 }
+            case 3:
+                System.out.println("What do you want to do? Press 1 to add a new page, 2 to show a new page, 3 to modify a new page, 4 to delete a new page... ");
+                int number3 = sc.nextInt();
+                switch (number3) {
+                    case 1:
+                        System.out.println("Enter a name of page: ");
+                        pageName = sc.next();
+                        System.out.println("Enter a description: ");
+                        description2 = sc.next();
+                        list.add(new Page(pageName, description2));
+                        break;
+                    case 2:
+                        page.toString();
+                        break;
                     case 3:
-                        System.out.println("What do you want to do? Press 1 to add a new page, 2 to show a new page, 3 to modify a new page, 4 to delete a new page... ");
-                        int number3 = sc.nextInt();
-                        switch (number3) {
-                            case 1:
-                                System.out.println("Enter a name of page: ");
-                                pageName = sc.next();
-                                System.out.println("Enter a description: ");
-                                description2 = sc.next();
-                                list.add(new Page(pageName, description2));
-                                break;
-                            case 2:
-                                page.toString();
-                                break;
-                            case 3:
-                                page.modify();
-                                break;
-                            case 4:
-                                page.delete();
-                                System.out.println("What index do you want to remove?");
-                                int index = sc.nextInt();
-                                list.remove(index);
-                                break;
+                        page.modify();
+                        break;
+                    case 4:
+                        page.delete();
+                        System.out.println("What index do you want to remove?");
+                        int index = sc.nextInt();
+                        list.remove(index);
+                        break;
 
-
-                        }
 
                 }
-
-
-                System.out.println("Your list after modifikation: ");
-                for (Object o : list) {
-                    System.out.println(o.toString());
-                }
-
-
 
         }
+
+
+        System.out.println("Your list after modifikation: ");
+        for (Object o : list) {
+            System.out.println(o.toString());
+        }
+*/
+
+    }
+
     }
 
 

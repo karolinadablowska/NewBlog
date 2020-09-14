@@ -1,9 +1,11 @@
-public class Author implements  Actions {
-
+public class Author implements Actions {
+    private static int iterator = 0;
+    private int id;
     private String name;
     private String surname;
 
     public Author(String name, String surname) {
+        this.id = iterator++;
         this.name = name;
         this.surname = surname;
     }
@@ -11,6 +13,13 @@ public class Author implements  Actions {
     public Author() {
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -30,8 +39,7 @@ public class Author implements  Actions {
 
     @Override
     public String toString() {
-        return String.format(name + ", " + surname);
-
+        return String.format(id+", "+name + ", " + surname);
     }
 
     @Override
